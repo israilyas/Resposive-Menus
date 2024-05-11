@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem=10px */
+    /* by default 1rem = 16px */
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.header {
+    padding: 0 4.8rem;
+    height: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d5cfcf;
+}
+
+.header .logo {
+    width: 12rem;
+}
+
+.navbar-list {
+    display: flex;
+    flex-direction: row;
+    gap: 4.8rem;
+    list-style-type: none;
+}
+
+.nav-link:visited,
+.nav-link:link {
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: black;
+    transition: all 0.3s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+    color: rgb(95, 190, 207);
+}
+
+/* ==============================
+    mobile navbar Icon
+=================================  */
+.mobile-nav-icon {
+    height: 4rem;
+    width: 4rem;
+    color: black;
+    padding-right: 0;
+}
+
+.mobile-nav-btn {
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 999;
+    width: 5rem;
+    padding: 2px;
+}
+
+.mobile-nav-icon[name="close-outline"] {
+    display: none;
+}
+
+/* ==============================
+    Hero and Services Section
+=================================  */
+main{
+    display: flex;
+    flex-direction: column;
+}
+.section-hero,
+.section-services {
+    height: 60vh;
+    width: 100vw;
+    padding: 9.6rem 0;
+    background-color: #a08ed7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-services {
+    background-color: #e7c56e;
+}
+
+.section-hero p,
+.section-services p {
+    font-size: 3.2rem;
+}
+
+/* ==============================
+        Code for Responsive
+=================================  */
+/* 980px */
+/* 1em=16px */
+
+@media (max-width:62em) {
+    .section-hero,
+.section-services{
+    width: 100vw;
+}
+    .mobile-nav-btn {
+        display: block;
+        padding-right: 30px;
+        /* border: 3px solid black; */
+        padding: auto;
+        width: 20%;
+        height: 20%;
+    }
+
+    .header {
+        position: relative;
+    }
+
+    .navbar {
+        /* display: none;  donot give display none if you want to give animation */
+        height: 100vh;
+        width: 100%;
+        background-color: #be9898;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* For tansition */
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        /* to hide the navbar */
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .navbar .navbar-list {
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none;
+        width: 100vw;
+    }
+
+    .header .logo {
+        padding-left: 20px;
+    }
+
+    .active .navbar {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .active .mobile-nav-icon[name="close-outline"] {
+        display: block;
+        opacity: 1;
+        z-index: 999;
+    }
+
+    .active .mobile-nav-btn .mobile-nav-icon[name="menu-outline"] {
+        display: none;
+    }
+
+}
